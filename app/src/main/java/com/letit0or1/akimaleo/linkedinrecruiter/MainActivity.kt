@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         signIn.setOnClickListener {
             UserUtil.instance.saveData(loginInput.text.toString(), passwordInput.text.toString())
+
         }
     }
 }

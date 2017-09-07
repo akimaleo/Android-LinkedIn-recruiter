@@ -9,22 +9,22 @@ import android.content.SharedPreferences
 
 internal class UserUtil private constructor() {
 
-    private var sharedPreferences: SharedPreferences? = null
-    private var context: Context? = null
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var context: Context
 
 
     fun saveData(login: String, password: String) {
-        sharedPreferences!!.edit()
+        sharedPreferences.edit()
                 .putString(FIELD_LOGIN, login)
                 .putString(FIELD_PASSWORD, password)
                 .apply()
     }
 
     val login: String
-        get() = sharedPreferences!!.getString(FIELD_LOGIN, "")
+        get() = sharedPreferences.getString(FIELD_LOGIN, "")
 
     val password: String
-        get() = sharedPreferences!!.getString(FIELD_PASSWORD, "")
+        get() = sharedPreferences.getString(FIELD_PASSWORD, "")
 
     fun setContext(context: Context) {
         this.context = context
